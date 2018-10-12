@@ -22,7 +22,7 @@ public class Store {
     // MARK: - Core Data stack
     
     lazy private var managedObjectModel: NSManagedObjectModel = {
-         let bundle = Bundle(for: type(of: self))
+         let bundle = Bundle(identifier: "CS.Store")!
 //        let bundle = Bundle.main
         let modelURL = bundle.url(forResource: storeName, withExtension: storeExtension)!
         return NSManagedObjectModel(contentsOf: modelURL)!
