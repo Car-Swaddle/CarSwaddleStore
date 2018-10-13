@@ -16,10 +16,6 @@ private let currentUserIDKey = "currentUserIDKey"
 @objc(User)
 public final class User: NSManagedObject, NSManagedObjectFetchable {
     
-    public func whatTheCrap() {
-        
-    }
-    
     public convenience init?(json: [String: Any?], context: NSManagedObjectContext) {
         guard let id = json["id"] as? String else {
                 return nil
