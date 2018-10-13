@@ -29,7 +29,7 @@ public class Store {
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     
-    lazy var persistentContainer: NSPersistentContainer = {
+    lazy private var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: containerName, managedObjectModel: managedObjectModel)
         
         container.loadPersistentStores(completionHandler: { storeDescription, error in

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14315.18" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="AutoService" representedClassName="Store.AutoService" syncable="YES">
+    <entity name="AutoService" representedClassName="AutoService" syncable="YES">
         <attribute name="creationDate" attributeType="Date" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
@@ -14,40 +14,40 @@
         <relationship name="price" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Price" inverseName="autoService" inverseEntity="Price" syncable="YES"/>
         <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="autoServices" inverseEntity="Vehicle" syncable="YES"/>
     </entity>
-    <entity name="Location" representedClassName="Store.Location" syncable="YES">
+    <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="latitude" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="streetAddress" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="autoService" maxCount="1" deletionRule="Nullify" destinationEntity="AutoService" inverseName="location" inverseEntity="AutoService" syncable="YES"/>
     </entity>
-    <entity name="Mechanic" representedClassName="Store.Mechanic" syncable="YES">
+    <entity name="Mechanic" representedClassName="Mechanic" syncable="YES">
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <relationship name="scheduleTimeSpans" toMany="YES" deletionRule="Nullify" destinationEntity="TemplateTimeSpan" inverseName="mechanic" inverseEntity="TemplateTimeSpan" syncable="YES"/>
         <relationship name="services" toMany="YES" deletionRule="Nullify" destinationEntity="AutoService" inverseName="mechanic" inverseEntity="AutoService" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="mechanic" inverseEntity="User" syncable="YES"/>
     </entity>
-    <entity name="OilChange" representedClassName="Store.OilChange" syncable="YES">
+    <entity name="OilChange" representedClassName="OilChange" syncable="YES">
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="oilType" attributeType="String" syncable="YES"/>
         <relationship name="autoService" maxCount="1" deletionRule="Nullify" destinationEntity="AutoService" inverseName="oilChange" inverseEntity="AutoService" syncable="YES"/>
     </entity>
-    <entity name="Price" representedClassName="Store.Price" syncable="YES">
+    <entity name="Price" representedClassName="Price" syncable="YES">
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <relationship name="autoService" maxCount="1" deletionRule="Nullify" destinationEntity="AutoService" inverseName="price" inverseEntity="AutoService" syncable="YES"/>
         <relationship name="parts" toMany="YES" deletionRule="Cascade" destinationEntity="PricePart" inverseName="price" inverseEntity="PricePart" syncable="YES"/>
     </entity>
-    <entity name="PricePart" representedClassName="Store.PricePart" syncable="YES">
+    <entity name="PricePart" representedClassName="PricePart" syncable="YES">
         <attribute name="key" attributeType="String" syncable="YES"/>
         <attribute name="value" attributeType="Decimal" syncable="YES"/>
         <relationship name="price" maxCount="1" deletionRule="Nullify" destinationEntity="Price" inverseName="parts" inverseEntity="Price" syncable="YES"/>
     </entity>
-    <entity name="TemplateTimeSpan" representedClassName="Store.TemplateTimeSpan" syncable="YES">
+    <entity name="TemplateTimeSpan" representedClassName="TemplateTimeSpan" syncable="YES">
         <attribute name="duration" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="startTime" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="weekday" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="mechanic" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanic" inverseName="scheduleTimeSpans" inverseEntity="Mechanic" syncable="YES"/>
     </entity>
-    <entity name="User" representedClassName="Store.User" syncable="YES">
+    <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="firstName" attributeType="String" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="lastName" attributeType="String" syncable="YES"/>
@@ -56,7 +56,7 @@
         <relationship name="services" toMany="YES" deletionRule="Nullify" destinationEntity="AutoService" inverseName="creator" inverseEntity="AutoService" syncable="YES"/>
         <relationship name="vehicles" toMany="YES" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="user" inverseEntity="Vehicle" syncable="YES"/>
     </entity>
-    <entity name="Vehicle" representedClassName="Store.Vehicle" syncable="YES">
+    <entity name="Vehicle" representedClassName="Vehicle" syncable="YES">
         <attribute name="creationDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="licensePlate" optional="YES" attributeType="String" syncable="YES"/>
@@ -66,7 +66,7 @@
         <relationship name="user" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="vehicles" inverseEntity="User" syncable="YES"/>
         <relationship name="vehicleDescription" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="VehicleDescription" inverseName="vehicle" inverseEntity="VehicleDescription" syncable="YES"/>
     </entity>
-    <entity name="VehicleDescription" representedClassName="Store.VehicleDescription" syncable="YES">
+    <entity name="VehicleDescription" representedClassName="VehicleDescription" syncable="YES">
         <attribute name="make" attributeType="String" syncable="YES"/>
         <attribute name="model" attributeType="String" syncable="YES"/>
         <attribute name="style" optional="YES" attributeType="String" syncable="YES"/>
