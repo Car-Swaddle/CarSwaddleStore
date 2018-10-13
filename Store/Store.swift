@@ -8,20 +8,25 @@
 
 import CoreData
 
-private let storeName = "CarSwaddleStore"
-private let storeExtension = "momd"
+private let modelFileExtension = "momd"
 
 public class Store {
     
-    private let containerName = "carSwaddle"
     
-    public init() { }
+    public let bundle: Bundle
+    public let storeName: String
+    public let containerName: String
+    
+    public init(bundle: Bundle, storeName: String, containerName: String) {
+        self.bundle = bundle
+        self.storeName = storeName
+        self.containerName = containerName
+    }
     
     // MARK: - Core Data stack
     
     lazy private var managedObjectModel: NSManagedObjectModel = {
-        let bundle = Bundle(identifier: "CS.Store")!
-        let modelURL = bundle.url(forResource: storeName, withExtension: storeExtension)!
+        let modelURL = bundle.url(forResource: storeName, withExtension: modelFileExtension)!
         return NSManagedObjectModel(contentsOf: modelURL)!
     }()
     

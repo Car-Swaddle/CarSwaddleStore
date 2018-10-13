@@ -23,7 +23,7 @@ class StoreTests: XCTestCase {
     }
     
     func testExample() {
-        let store = Store()
+        let store = Store(bundle: Bundle(identifier: "CS.Store")!, storeName: "CarSwaddleStore", containerName: "StoreContainer")
         
         store.mainContext.persist()
     
