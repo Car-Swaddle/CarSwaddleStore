@@ -12,7 +12,6 @@ private let modelFileExtension = "momd"
 
 public class Store {
     
-    
     public let bundle: Bundle
     public let storeName: String
     public let containerName: String
