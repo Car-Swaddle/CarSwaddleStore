@@ -16,7 +16,7 @@ private let currentUserIDKey = "currentUserIDKey"
 @objc(User)
 public final class User: NSManagedObject, NSManagedObjectFetchable {
     
-    public convenience init?(json: [String: Any?], isMechanic: Bool, context: NSManagedObjectContext) {
+    public convenience init?(json: [String: Any?], context: NSManagedObjectContext) {
         guard let id = json["id"] as? String else {
                 return nil
         }
