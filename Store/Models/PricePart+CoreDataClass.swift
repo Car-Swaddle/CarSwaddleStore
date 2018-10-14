@@ -10,6 +10,6 @@ import Foundation
 import CoreData
 
 @objc(PricePart)
-public final class PricePart: NSManagedObject, NSManagedObjectFetchable {
+public final class PricePart: NSManagedObject {
 
 }

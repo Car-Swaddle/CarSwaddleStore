@@ -11,7 +11,7 @@ import CoreData
 import CoreLocation
 
 @objc(Location)
-public final class Location: NSManagedObject, NSManagedObjectFetchable {
+public final class Location: NSManagedObject {
     
     public var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
