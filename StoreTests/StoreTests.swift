@@ -37,7 +37,7 @@ class StoreTests: XCTestCase {
         template.weekday = .wednesday
         template.duration = 60*60
         template.mechanic = mechanic
-        template.startTime = Date()
+        template.startTime = 0
         store.mainContext.persist()
         
         _ = template.weekday
