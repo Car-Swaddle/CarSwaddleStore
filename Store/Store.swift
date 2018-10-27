@@ -76,7 +76,7 @@ public class Store {
 public extension NSManagedObjectContext {
     
     public func persist() {
-        guard  hasChanges else { return }
+        guard hasChanges else { return }
         do {
             try save()
         } catch {

@@ -20,7 +20,7 @@ public enum Weekday: Int16, CaseIterable {
 }
 
 @objc(TemplateTimeSpan)
-public final class TemplateTimeSpan: NSManagedObject {
+public final class TemplateTimeSpan: NSManagedObject, NSManagedObjectFetchable {
     
     private let weekdayKey = "weekday"
     
