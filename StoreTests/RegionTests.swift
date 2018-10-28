@@ -18,6 +18,17 @@ class RegionTests: XCTestCase {
         XCTAssert(region != nil, "Must have region from: \(regionJSON)")
     }
     
+    func testSetRegion() {
+        let context = store.mainContext
+        let mechanic = Mechanic(context: store.mainContext)
+        mechanic.identifier = "someid"
+        
+        let region = Region(json: regionJSON, in: context)
+        mechanic.serviceRegion = region
+        
+        store.mainContext.persist()
+    }
+    
 }
 
 private let regionJSON: [String: Any] = [
