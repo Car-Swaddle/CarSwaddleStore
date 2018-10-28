@@ -16,10 +16,12 @@ public final class Region: NSManagedObject, NSManagedObjectFetchable {
     public convenience init?(json: JSONObject, in context: NSManagedObjectContext) {
         guard let latitude = json["latitude"] as? CGFloat,
             let longitude = json["longitude"] as? CGFloat,
-            let radius = json["radius"] as? Double else {
+            let radius = json["radius"] as? Double,
+            let identifier = json["id"] as? String else {
                 return nil
         }
         self.init(context: context)
+        self.identifier = identifier
         self.latitude = latitude
         self.longitude = longitude
         self.radius = radius
