@@ -38,6 +38,7 @@
 		99F027882185820F005FEFC7 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F027872185820F005FEFC7 /* DateExtensionTests.swift */; };
 		99F0278B21858611005FEFC7 /* Region+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F0278921858611005FEFC7 /* Region+CoreDataClass.swift */; };
 		99F0278C21858611005FEFC7 /* Region+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F0278A21858611005FEFC7 /* Region+CoreDataProperties.swift */; };
+		99F0279021859E29005FEFC7 /* RegionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F0278F21859E29005FEFC7 /* RegionTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +86,7 @@
 		99F027872185820F005FEFC7 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 		99F0278921858611005FEFC7 /* Region+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Region+CoreDataClass.swift"; sourceTree = "<group>"; };
 		99F0278A21858611005FEFC7 /* Region+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Region+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		99F0278F21859E29005FEFC7 /* RegionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionTests.swift; sourceTree = "<group>"; };
 		99F78F2D214BA53600D1BD28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -191,6 +193,7 @@
 			children = (
 				99DED729214B80D40061CFE0 /* StoreTests.swift */,
 				99F027872185820F005FEFC7 /* DateExtensionTests.swift */,
+				99F0278F21859E29005FEFC7 /* RegionTests.swift */,
 				99DED72B214B80D40061CFE0 /* Info.plist */,
 			);
 			path = StoreTests;
@@ -350,6 +353,7 @@
 			files = (
 				99DED72A214B80D40061CFE0 /* StoreTests.swift in Sources */,
 				99F027882185820F005FEFC7 /* DateExtensionTests.swift in Sources */,
+				99F0279021859E29005FEFC7 /* RegionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
