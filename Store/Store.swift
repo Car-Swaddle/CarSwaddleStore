@@ -8,6 +8,8 @@
 
 import CoreData
 
+public typealias JSONObject = [String: Any]
+
 private let modelFileExtension = "momd"
 
 public class Store {
