@@ -36,6 +36,8 @@
 		99DED72C214B80D40061CFE0 /* Store.h in Headers */ = {isa = PBXBuildFile; fileRef = 99DED71E214B80D30061CFE0 /* Store.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99F02786218581E5005FEFC7 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F02785218581E5005FEFC7 /* DateExtension.swift */; };
 		99F027882185820F005FEFC7 /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F027872185820F005FEFC7 /* DateExtensionTests.swift */; };
+		99F0278B21858611005FEFC7 /* Region+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F0278921858611005FEFC7 /* Region+CoreDataClass.swift */; };
+		99F0278C21858611005FEFC7 /* Region+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F0278A21858611005FEFC7 /* Region+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		99DED72B214B80D40061CFE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99F02785218581E5005FEFC7 /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtension.swift; sourceTree = "<group>"; };
 		99F027872185820F005FEFC7 /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
+		99F0278921858611005FEFC7 /* Region+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Region+CoreDataClass.swift"; sourceTree = "<group>"; };
+		99F0278A21858611005FEFC7 /* Region+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Region+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		99F78F2D214BA53600D1BD28 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -115,6 +119,8 @@
 		9991FE1C214B873F00F58F42 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				99F0278921858611005FEFC7 /* Region+CoreDataClass.swift */,
+				99F0278A21858611005FEFC7 /* Region+CoreDataProperties.swift */,
 				991B401A216ADC5C00D7644D /* AutoService+CoreDataClass.swift */,
 				991B401B216ADC5C00D7644D /* AutoService+CoreDataProperties.swift */,
 				991B401D216ADC5C00D7644D /* Location+CoreDataClass.swift */,
@@ -311,10 +317,12 @@
 				991B403B216ADC5D00D7644D /* TemplateTimeSpan+CoreDataClass.swift in Sources */,
 				991B4031216ADC5D00D7644D /* Location+CoreDataClass.swift in Sources */,
 				999E9194214B81C100FF894B /* Store.swift in Sources */,
+				99F0278C21858611005FEFC7 /* Region+CoreDataProperties.swift in Sources */,
 				9913759A217080D900F15BEC /* CarSwaddleStore.xcdatamodeld in Sources */,
 				991B4036216ADC5D00D7644D /* VehicleDescription+CoreDataProperties.swift in Sources */,
 				991B4029216ADC5D00D7644D /* VehicleDescription+CoreDataClass.swift in Sources */,
 				991B4032216ADC5D00D7644D /* User+CoreDataClass.swift in Sources */,
+				99F0278B21858611005FEFC7 /* Region+CoreDataClass.swift in Sources */,
 				991B4034216ADC5D00D7644D /* OilChange+CoreDataClass.swift in Sources */,
 				991B402D216ADC5D00D7644D /* OilChange+CoreDataProperties.swift in Sources */,
 				991B402B216ADC5D00D7644D /* PricePart+CoreDataClass.swift in Sources */,

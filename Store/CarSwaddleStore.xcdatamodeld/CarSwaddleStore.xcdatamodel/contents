@@ -43,11 +43,12 @@
         <attribute name="value" attributeType="Decimal" syncable="YES"/>
         <relationship name="price" maxCount="1" deletionRule="Nullify" destinationEntity="Price" inverseName="parts" inverseEntity="Price" syncable="YES"/>
     </entity>
-    <entity name="Region" representedClassName="Region" syncable="YES" codeGenerationType="class">
-        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="radius" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
-        <relationship name="mechanic" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanic" inverseName="serviceRegion" inverseEntity="Mechanic" syncable="YES"/>
+    <entity name="Region" representedClassName="Region" syncable="YES">
+        <attribute name="identifier" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" attributeType="Float" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="longitude" attributeType="Float" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="radius" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="mechanic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanic" inverseName="serviceRegion" inverseEntity="Mechanic" syncable="YES"/>
     </entity>
     <entity name="TemplateTimeSpan" representedClassName="TemplateTimeSpan" syncable="YES">
         <attribute name="duration" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
@@ -94,6 +95,6 @@
         <element name="User" positionX="-27" positionY="72" width="128" height="150"/>
         <element name="Vehicle" positionX="-54" positionY="-9" width="128" height="165"/>
         <element name="VehicleDescription" positionX="-27" positionY="90" width="128" height="135"/>
-        <element name="Region" positionX="-27" positionY="99" width="128" height="105"/>
+        <element name="Region" positionX="-27" positionY="99" width="128" height="120"/>
     </elements>
 </model>
