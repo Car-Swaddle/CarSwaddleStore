@@ -20,20 +20,21 @@ public extension AutoService {
         case completed
     }
     
-    public enum AutoServiceType: String {
-        case oilChange
-    }
-    
 }
 
 private let statusKey = "status"
 private let typeKey = "type"
 
 @objc(AutoService)
-public final class AutoService: NSManagedObject, NSManagedObjectFetchable {
+public final class AutoService: NSManagedObject, NSManagedObjectFetchable, JSONInitable {
+    
+    public init?(json: JSONObject, context: NSManagedObjectContext) {
+//        guard let id = json.identifier,
+//            let
+        return nil
+    }
     
     @NSManaged private var primitiveStatus: String
-    @NSManaged private var primitiveType: String
     
     public var status: Status {
         set {
@@ -45,21 +46,6 @@ public final class AutoService: NSManagedObject, NSManagedObjectFetchable {
             willAccessValue(forKey: statusKey)
             let enumValue = Status(rawValue: primitiveStatus) ?? .created
             didAccessValue(forKey: statusKey)
-            return enumValue
-        }
-    }
-    
-    
-    public var type: AutoServiceType {
-        set {
-            willChangeValue(forKey: typeKey)
-            primitiveType = newValue.rawValue
-            didChangeValue(forKey: typeKey)
-        }
-        get {
-            willAccessValue(forKey: typeKey)
-            let enumValue = AutoServiceType(rawValue: primitiveType) ?? .oilChange
-            didAccessValue(forKey: typeKey)
             return enumValue
         }
     }
