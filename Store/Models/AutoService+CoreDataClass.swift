@@ -28,9 +28,7 @@ private let typeKey = "type"
 @objc(AutoService)
 public final class AutoService: NSManagedObject, NSManagedObjectFetchable, JSONInitable {
     
-    public init?(json: JSONObject, context: NSManagedObjectContext) {
-//        guard let id = json.identifier,
-//            let
+    public convenience init?(json: JSONObject, context: NSManagedObjectContext) {
         return nil
     }
     

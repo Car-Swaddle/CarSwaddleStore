@@ -14,10 +14,11 @@
         <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="autoServices" inverseEntity="Vehicle" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="latitude" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="longitude" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="streetAddress" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="autoService" maxCount="1" deletionRule="Nullify" destinationEntity="AutoService" inverseName="location" inverseEntity="AutoService" syncable="YES"/>
+        <relationship name="autoService" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AutoService" inverseName="location" inverseEntity="AutoService" syncable="YES"/>
     </entity>
     <entity name="Mechanic" representedClassName="Mechanic" syncable="YES">
         <attribute name="identifier" attributeType="String" syncable="YES"/>
@@ -91,7 +92,7 @@
     </entity>
     <elements>
         <element name="AutoService" positionX="-63" positionY="-18" width="128" height="210"/>
-        <element name="Location" positionX="-36" positionY="27" width="128" height="105"/>
+        <element name="Location" positionX="-36" positionY="27" width="128" height="120"/>
         <element name="Mechanic" positionX="-27" positionY="99" width="128" height="135"/>
         <element name="OilChange" positionX="-18" positionY="54" width="128" height="90"/>
         <element name="Price" positionX="-9" positionY="90" width="128" height="90"/>
