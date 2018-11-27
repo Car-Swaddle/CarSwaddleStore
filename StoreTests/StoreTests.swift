@@ -57,8 +57,22 @@ class StoreTests: XCTestCase {
         }
         
         let secondFetchedUser = User.fetch(with: identifier, in: store.mainContext)
-        
         XCTAssert(secondFetchedUser == nil, "Should not have gotten any user")
+        
+        let newUser = User(context: store.mainContext)
+        newUser.identifier = identifier
+        
+        store.mainContext.persist()
+        
+        let exp = expectation(description: "\(#function)\(#line)")
+        
+        store.privateContext { privateContext in
+            let fetchedExist = User.fetch(with: identifier, in: privateContext)
+            XCTAssert(fetchedExist != nil, "Should not have gotten any user")
+            exp.fulfill()
+        }
+        
+        waitForExpectations(timeout: 40, handler: nil)
     }
     
 }
