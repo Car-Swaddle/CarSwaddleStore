@@ -30,6 +30,7 @@ private let serverDateFormatter: DateFormatter = {
     return dateFormatter
 }()
 
+
 @objc(AutoService)
 public final class AutoService: NSManagedObject, NSManagedObjectFetchable, JSONInitable {
     
