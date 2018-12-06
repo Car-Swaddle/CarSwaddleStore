@@ -59,7 +59,7 @@ public final class AutoService: NSManagedObject, NSManagedObjectFetchable, JSONI
         
         var serviceEntities: Set<ServiceEntity> = []
         for entityJSON in json["serviceEntities"] as? [JSONObject] ?? [] {
-            guard let serviceEntity = ServiceEntity(json: entityJSON, context: context) else { continue }
+            guard let serviceEntity = ServiceEntity.fetchOrCreate(json: entityJSON, context: context) else { continue }
             serviceEntities.insert(serviceEntity)
         }
         
