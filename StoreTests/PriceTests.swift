@@ -11,20 +11,27 @@ import XCTest
 
 class PriceTests: XCTestCase {
     
-    func testCreatePrice() {
-        let price = Price(json: price4PricePartJSON, context: store.mainContext)
-        XCTAssert(price != nil, "Should have price")
-        XCTAssert(price?.parts.count == 4, "Should have price")
+    override func setUp() {
+        super.setUp()
         
-        store.mainContext.persist()
-        
-        let price2 = Price(json: price6PricePartJSON, context: store.mainContext)
-        XCTAssert(price2 != nil, "Should have price")
-        XCTAssert(price2?.parts.count == 6, "Should have price")
-        
+        try? store.destroyAllData()
         store.mainContext.persist()
     }
     
+    func testCreatePrice() {
+//        let price = Price(json: price4PricePartJSON, context: store.mainContext)
+        let price = Price.fetchOrCreate(json: price4PricePartJSON, context: store.mainContext)
+        XCTAssert(price != nil, "Should have price")
+        XCTAssert(price?.parts.count == 4, "Should have 4 price parts")
+        
+        store.mainContext.persist()
+        
+        let price2 = Price.fetchOrCreate(json: price6PricePartJSON, context: store.mainContext)
+        XCTAssert(price2 != nil, "Should have price")
+        XCTAssert(price2?.parts.count == 6, "Should have 6 price parts")
+        
+        store.mainContext.persist()
+    }
     
 }
 

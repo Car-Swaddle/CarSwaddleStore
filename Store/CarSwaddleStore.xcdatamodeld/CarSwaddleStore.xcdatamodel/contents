@@ -36,7 +36,7 @@
     <entity name="Price" representedClassName="Price" syncable="YES">
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="totalPrice" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
-        <relationship name="autoService" maxCount="1" deletionRule="Nullify" destinationEntity="AutoService" inverseName="price" inverseEntity="AutoService" syncable="YES"/>
+        <relationship name="autoService" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AutoService" inverseName="price" inverseEntity="AutoService" syncable="YES"/>
         <relationship name="parts" toMany="YES" deletionRule="Cascade" destinationEntity="PricePart" inverseName="price" inverseEntity="PricePart" syncable="YES"/>
     </entity>
     <entity name="PricePart" representedClassName="PricePart" syncable="YES">
