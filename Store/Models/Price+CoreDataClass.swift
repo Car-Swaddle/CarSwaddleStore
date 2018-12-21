@@ -9,7 +9,44 @@
 import Foundation
 import CoreData
 
+typealias PriceValues = (identifier: String, totalPrice: NSDecimalNumber)
+
 @objc(Price)
-public final  class Price: NSManagedObject, NSManagedObjectFetchable {
+public final class Price: NSManagedObject, NSManagedObjectFetchable, JSONInitable {
+    
+    public convenience init?(json: JSONObject, context: NSManagedObjectContext) {
+        guard let values = Price.values(from: json) else { return nil }
+        self.init(context: context)
+        configure(from: values, json: json)
+    }
+    
+    public func configure(with json: JSONObject) throws {
+        guard let values = Price.values(from: json) else { throw StoreError.invalidJSON }
+        configure(from: values, json: json)
+    }
+    
+    private static func values(from json: JSONObject) -> PriceValues? {
+        guard let id = json.identifier,
+            let totalPriceString = json["totalPrice"] as? String else { return nil }
+        return (id, NSDecimalNumber(string: totalPriceString))
+    }
+    
+    private func configure(from values: PriceValues, json: JSONObject)  {
+        self.identifier = values.identifier
+        self.totalPrice = values.totalPrice
+        
+        guard let context = managedObjectContext else { return }
+        
+        for previousPricePart in parts {
+            context.delete(previousPricePart)
+        }
+        
+        if let pricePartsJSONArray = json["priceParts"] as? [JSONObject] {
+            for pricePartJSON in pricePartsJSONArray {
+                let pricePart = PricePart(json: pricePartJSON, context: context)
+                pricePart?.price = self
+            }
+        }
+    }
     
 }
