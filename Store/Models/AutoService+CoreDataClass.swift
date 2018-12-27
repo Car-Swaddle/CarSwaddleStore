@@ -24,7 +24,7 @@ public extension AutoService {
 private let statusKey = "status"
 private let typeKey = "type"
 
-private let serverDateFormatter: DateFormatter = {
+let serverDateFormatter: DateFormatter = {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     return dateFormatter

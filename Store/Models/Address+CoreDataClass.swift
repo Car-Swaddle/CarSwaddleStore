@@ -25,10 +25,16 @@ final public class Address: NSManagedObject, NSManagedObjectFetchable, JSONInita
     public func configure(with json: JSONObject) throws {
         guard let values = Address.values(from: json) else { throw StoreError.invalidJSON }
         self.configure(with: values)
+        
+        guard let context = managedObjectContext else { return }
+        
+        if let mechanicID = json["mechanicID"] as? String {
+            self.mechanic = Mechanic.fetch(with: mechanicID, in: context)
+        }
     }
     
     static private func values(from json: JSONObject) -> AddressValues? {
-        guard let identifier = json["identifier"] as? String,
+        guard let identifier = json["id"] as? String,
             let line1 = json["line1"] as? String,
             let postalCode = json["postalCode"] as? String,
             let city = json["city"] as? String,

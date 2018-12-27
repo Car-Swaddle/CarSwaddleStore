@@ -32,7 +32,10 @@ public final class Mechanic: NSManagedObject, NSManagedObjectFetchable, JSONInit
     private func configure(from identifier: String, json: JSONObject)  {
         self.identifier = identifier
         self.isActive = json["isActive"] as? Bool ?? false
-        self.dateOfBirth = json["dateOfBirth"] as? Date
+        
+        if let dateOfBirthString = json["dateOfBirth"] as? String {
+            self.dateOfBirth = serverDateFormatter.date(from: dateOfBirthString)
+        }
         
         guard let context = managedObjectContext else { return }
         
