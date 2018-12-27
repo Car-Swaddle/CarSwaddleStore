@@ -22,6 +22,7 @@ extension Mechanic {
     @NSManaged public var scheduleTimeSpans: Set<TemplateTimeSpan>
     @NSManaged public var services: Set<AutoService>
     @NSManaged public var serviceRegion: Region?
+    @NSManaged public var address: Address?
 
 }
 

@@ -200,4 +200,8 @@ extension AutoService {
         })?.oilChange
     }
     
+    public var canConvertToJSON: Bool {
+        return (try? toJSON()) != nil
+    }
+    
 }
