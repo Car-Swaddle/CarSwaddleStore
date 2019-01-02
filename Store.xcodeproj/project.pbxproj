@@ -39,6 +39,8 @@
 		998D3AD021DC0DB0003DD717 /* Review+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998D3ACE21DC0DB0003DD717 /* Review+CoreDataClass.swift */; };
 		998D3AD121DC0DB0003DD717 /* Review+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998D3ACF21DC0DB0003DD717 /* Review+CoreDataProperties.swift */; };
 		998D3AD321DC8483003DD717 /* ReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998D3AD221DC8483003DD717 /* ReviewTests.swift */; };
+		998D3ADE21DD4565003DD717 /* Stats+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998D3ADC21DD4565003DD717 /* Stats+CoreDataClass.swift */; };
+		998D3ADF21DD4565003DD717 /* Stats+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998D3ADD21DD4565003DD717 /* Stats+CoreDataProperties.swift */; };
 		999C8D3E218C247300058FE7 /* NSManagedObjectFetchableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999C8D3D218C247300058FE7 /* NSManagedObjectFetchableTests.swift */; };
 		999E9194214B81C100FF894B /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999E9193214B81C100FF894B /* Store.swift */; };
 		99A3A87921D22871009A1AD9 /* Address+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A3A87721D22871009A1AD9 /* Address+CoreDataClass.swift */; };
@@ -98,6 +100,8 @@
 		998D3ACE21DC0DB0003DD717 /* Review+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Review+CoreDataClass.swift"; sourceTree = "<group>"; };
 		998D3ACF21DC0DB0003DD717 /* Review+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Review+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		998D3AD221DC8483003DD717 /* ReviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTests.swift; sourceTree = "<group>"; };
+		998D3ADC21DD4565003DD717 /* Stats+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stats+CoreDataClass.swift"; sourceTree = "<group>"; };
+		998D3ADD21DD4565003DD717 /* Stats+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stats+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		999C8D3D218C247300058FE7 /* NSManagedObjectFetchableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSManagedObjectFetchableTests.swift; sourceTree = "<group>"; };
 		999E9193214B81C100FF894B /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		99A3A87721D22871009A1AD9 /* Address+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Address+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -149,6 +153,8 @@
 		9991FE1C214B873F00F58F42 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				998D3ADC21DD4565003DD717 /* Stats+CoreDataClass.swift */,
+				998D3ADD21DD4565003DD717 /* Stats+CoreDataProperties.swift */,
 				99F0278921858611005FEFC7 /* Region+CoreDataClass.swift */,
 				99F0278A21858611005FEFC7 /* Region+CoreDataProperties.swift */,
 				998D3ACE21DC0DB0003DD717 /* Review+CoreDataClass.swift */,
@@ -374,6 +380,7 @@
 				99F0278B21858611005FEFC7 /* Region+CoreDataClass.swift in Sources */,
 				991B4034216ADC5D00D7644D /* OilChange+CoreDataClass.swift in Sources */,
 				991B402D216ADC5D00D7644D /* OilChange+CoreDataProperties.swift in Sources */,
+				998D3ADF21DD4565003DD717 /* Stats+CoreDataProperties.swift in Sources */,
 				991B402B216ADC5D00D7644D /* PricePart+CoreDataClass.swift in Sources */,
 				991B4037216ADC5D00D7644D /* PricePart+CoreDataProperties.swift in Sources */,
 				99F02786218581E5005FEFC7 /* DateExtension.swift in Sources */,
@@ -388,6 +395,7 @@
 				991B403A216ADC5D00D7644D /* Vehicle+CoreDataClass.swift in Sources */,
 				991B4038216ADC5D00D7644D /* Mechanic+CoreDataProperties.swift in Sources */,
 				991B402A216ADC5D00D7644D /* Location+CoreDataProperties.swift in Sources */,
+				998D3ADE21DD4565003DD717 /* Stats+CoreDataClass.swift in Sources */,
 				991B403C216ADC5D00D7644D /* User+CoreDataProperties.swift in Sources */,
 				998D3AD021DC0DB0003DD717 /* Review+CoreDataClass.swift in Sources */,
 				991B402C216ADC5D00D7644D /* Mechanic+CoreDataClass.swift in Sources */,

@@ -25,6 +25,7 @@ extension Mechanic {
     @NSManaged public var serviceRegion: Region?
     @NSManaged public var dateOfBirth: Date?
     @NSManaged public var address: Address?
+    @NSManaged public var stats: Stats?
 
 }
 
