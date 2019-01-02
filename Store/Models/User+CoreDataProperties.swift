@@ -22,6 +22,7 @@ extension User {
     @NSManaged public var phoneNumber: String?
     @NSManaged public var services: Set<AutoService>
     @NSManaged public var vehicles: Set<Vehicle>
+    @NSManaged public var reviews: Set<Review>
     @NSManaged public var mechanic: Mechanic?
 
 }

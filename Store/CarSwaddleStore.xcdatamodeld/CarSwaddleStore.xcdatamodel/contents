@@ -18,6 +18,8 @@
         <relationship name="location" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Location" inverseName="autoService" inverseEntity="Location" syncable="YES"/>
         <relationship name="mechanic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanic" inverseName="services" inverseEntity="Mechanic" syncable="YES"/>
         <relationship name="price" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Price" inverseName="autoService" inverseEntity="Price" syncable="YES"/>
+        <relationship name="reviewFromMechanic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Review" inverseName="autoServiceFromMechanic" inverseEntity="Review" syncable="YES"/>
+        <relationship name="reviewFromUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Review" inverseName="autoServiceFromUser" inverseEntity="Review" syncable="YES"/>
         <relationship name="serviceEntities" toMany="YES" deletionRule="Cascade" destinationEntity="ServiceEntity" inverseName="autoService" inverseEntity="ServiceEntity" syncable="YES"/>
         <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="autoServices" inverseEntity="Vehicle" syncable="YES"/>
     </entity>
@@ -33,6 +35,7 @@
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="isActive" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="mechanic" inverseEntity="Address" syncable="YES"/>
+        <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review" inverseName="mechanic" inverseEntity="Review" syncable="YES"/>
         <relationship name="scheduleTimeSpans" toMany="YES" deletionRule="Cascade" destinationEntity="TemplateTimeSpan" inverseName="mechanic" inverseEntity="TemplateTimeSpan" syncable="YES"/>
         <relationship name="serviceRegion" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Region" inverseName="mechanic" inverseEntity="Region" syncable="YES"/>
         <relationship name="services" toMany="YES" deletionRule="Nullify" destinationEntity="AutoService" inverseName="mechanic" inverseEntity="AutoService" syncable="YES"/>
@@ -61,6 +64,17 @@
         <attribute name="radius" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="mechanic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanic" inverseName="serviceRegion" inverseEntity="Mechanic" syncable="YES"/>
     </entity>
+    <entity name="Review" representedClassName="Review" syncable="YES">
+        <attribute name="identifier" attributeType="String" syncable="YES"/>
+        <attribute name="rating" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="revieweeID" attributeType="String" syncable="YES"/>
+        <attribute name="reviewerID" attributeType="String" syncable="YES"/>
+        <attribute name="text" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="autoServiceFromMechanic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AutoService" inverseName="reviewFromMechanic" inverseEntity="AutoService" syncable="YES"/>
+        <relationship name="autoServiceFromUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AutoService" inverseName="reviewFromUser" inverseEntity="AutoService" syncable="YES"/>
+        <relationship name="mechanic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanic" inverseName="reviews" inverseEntity="Mechanic" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="reviews" inverseEntity="User" syncable="YES"/>
+    </entity>
     <entity name="ServiceEntity" representedClassName="ServiceEntity" syncable="YES">
         <attribute name="entityType" attributeType="String" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
@@ -80,6 +94,7 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="mechanic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanic" inverseName="user" inverseEntity="Mechanic" syncable="YES"/>
+        <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review" inverseName="user" inverseEntity="Review" syncable="YES"/>
         <relationship name="services" toMany="YES" deletionRule="Nullify" destinationEntity="AutoService" inverseName="creator" inverseEntity="AutoService" syncable="YES"/>
         <relationship name="vehicles" toMany="YES" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="user" inverseEntity="Vehicle" syncable="YES"/>
     </entity>
@@ -102,18 +117,19 @@
         <relationship name="vehicle" maxCount="1" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="vehicleDescription" inverseEntity="Vehicle" syncable="YES"/>
     </entity>
     <elements>
-        <element name="AutoService" positionX="-63" positionY="-18" width="128" height="210"/>
+        <element name="Address" positionX="-27" positionY="99" width="128" height="135"/>
+        <element name="AutoService" positionX="-63" positionY="-18" width="128" height="240"/>
         <element name="Location" positionX="-36" positionY="27" width="128" height="120"/>
-        <element name="Mechanic" positionX="-27" positionY="99" width="128" height="165"/>
+        <element name="Mechanic" positionX="-27" positionY="99" width="128" height="180"/>
         <element name="OilChange" positionX="-18" positionY="54" width="128" height="90"/>
         <element name="Price" positionX="-9" positionY="90" width="128" height="105"/>
         <element name="PricePart" positionX="0" positionY="108" width="128" height="90"/>
         <element name="Region" positionX="-27" positionY="99" width="128" height="120"/>
         <element name="ServiceEntity" positionX="-27" positionY="99" width="128" height="105"/>
         <element name="TemplateTimeSpan" positionX="0" positionY="126" width="128" height="120"/>
-        <element name="User" positionX="-27" positionY="72" width="128" height="150"/>
+        <element name="User" positionX="-27" positionY="72" width="128" height="165"/>
         <element name="Vehicle" positionX="-54" positionY="-9" width="128" height="165"/>
         <element name="VehicleDescription" positionX="-27" positionY="90" width="128" height="135"/>
-        <element name="Address" positionX="-27" positionY="99" width="128" height="135"/>
+        <element name="Review" positionX="-27" positionY="108" width="128" height="180"/>
     </elements>
 </model>
