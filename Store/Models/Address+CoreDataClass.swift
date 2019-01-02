@@ -58,4 +58,21 @@ final public class Address: NSManagedObject, NSManagedObjectFetchable, JSONInita
         }
     }
     
+    public var toJSON: JSONObject {
+        var json: JSONObject = [:]
+        if let line1 = line1 {
+            json["line1"] = line1
+        }
+        if let postalCode = postalCode {
+            json["postalCode"] = postalCode
+        }
+        if let city = city {
+            json["city"] = city
+        }
+        if let state = state {
+            json["state"] = state
+        }
+        return json
+    }
+    
 }

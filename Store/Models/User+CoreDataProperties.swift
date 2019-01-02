@@ -20,6 +20,7 @@ extension User {
     @NSManaged public var firstName: String?
     @NSManaged public var lastName: String?
     @NSManaged public var phoneNumber: String?
+    @NSManaged public var averageRating: CGFloat
     @NSManaged public var services: Set<AutoService>
     @NSManaged public var vehicles: Set<Vehicle>
     @NSManaged public var reviews: Set<Review>
