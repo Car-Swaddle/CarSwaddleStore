@@ -34,6 +34,7 @@
         <attribute name="dateOfBirth" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="isActive" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="profileImageID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="mechanic" inverseEntity="Address" syncable="YES"/>
         <relationship name="reviews" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Review" inverseName="mechanic" inverseEntity="Review" syncable="YES"/>
         <relationship name="scheduleTimeSpans" toMany="YES" deletionRule="Cascade" destinationEntity="TemplateTimeSpan" inverseName="mechanic" inverseEntity="TemplateTimeSpan" syncable="YES"/>
@@ -131,7 +132,7 @@
         <element name="Address" positionX="-27" positionY="99" width="128" height="135"/>
         <element name="AutoService" positionX="-63" positionY="-18" width="128" height="240"/>
         <element name="Location" positionX="-36" positionY="27" width="128" height="120"/>
-        <element name="Mechanic" positionX="-27" positionY="99" width="128" height="195"/>
+        <element name="Mechanic" positionX="-27" positionY="99" width="128" height="210"/>
         <element name="OilChange" positionX="-18" positionY="54" width="128" height="90"/>
         <element name="Price" positionX="-9" positionY="90" width="128" height="105"/>
         <element name="PricePart" positionX="0" positionY="108" width="128" height="90"/>
