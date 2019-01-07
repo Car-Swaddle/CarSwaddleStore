@@ -99,6 +99,8 @@
         <attribute name="averageRating" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
+        <attribute name="isEmailVerified" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="isPhoneNumberVerified" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phoneNumber" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profileImageID" optional="YES" attributeType="String" syncable="YES"/>
@@ -138,7 +140,7 @@
         <element name="ServiceEntity" positionX="-27" positionY="99" width="128" height="105"/>
         <element name="Stats" positionX="-18" positionY="126" width="128" height="105"/>
         <element name="TemplateTimeSpan" positionX="0" positionY="126" width="128" height="120"/>
-        <element name="User" positionX="-27" positionY="72" width="128" height="195"/>
+        <element name="User" positionX="-27" positionY="72" width="128" height="225"/>
         <element name="Vehicle" positionX="-54" positionY="-9" width="128" height="165"/>
         <element name="VehicleDescription" positionX="-27" positionY="90" width="128" height="135"/>
     </elements>
