@@ -9,6 +9,13 @@
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="mechanic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanic" inverseName="address" inverseEntity="Mechanic" syncable="YES"/>
     </entity>
+    <entity name="Amount" representedClassName="Amount" syncable="YES">
+        <attribute name="currency" attributeType="String" syncable="YES"/>
+        <attribute name="value" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="balanceForAvailable" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Balance" inverseName="available" inverseEntity="Balance" syncable="YES"/>
+        <relationship name="balanceForPending" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Balance" inverseName="pending" inverseEntity="Balance" syncable="YES"/>
+        <relationship name="balanceForReserved" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Balance" inverseName="reserved" inverseEntity="Balance" syncable="YES"/>
+    </entity>
     <entity name="AutoService" representedClassName="AutoService" syncable="YES">
         <attribute name="creationDate" attributeType="Date" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
@@ -23,6 +30,11 @@
         <relationship name="reviewFromUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Review" inverseName="autoServiceFromUser" inverseEntity="Review" syncable="YES"/>
         <relationship name="serviceEntities" toMany="YES" deletionRule="Cascade" destinationEntity="ServiceEntity" inverseName="autoService" inverseEntity="ServiceEntity" syncable="YES"/>
         <relationship name="vehicle" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Vehicle" inverseName="autoServices" inverseEntity="Vehicle" syncable="YES"/>
+    </entity>
+    <entity name="Balance" representedClassName="Balance" syncable="YES">
+        <relationship name="available" maxCount="1" deletionRule="Cascade" destinationEntity="Amount" inverseName="balanceForAvailable" inverseEntity="Amount" syncable="YES"/>
+        <relationship name="pending" maxCount="1" deletionRule="Cascade" destinationEntity="Amount" inverseName="balanceForPending" inverseEntity="Amount" syncable="YES"/>
+        <relationship name="reserved" maxCount="1" deletionRule="Cascade" destinationEntity="Amount" inverseName="balanceForReserved" inverseEntity="Amount" syncable="YES"/>
     </entity>
     <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
@@ -52,13 +64,13 @@
     </entity>
     <entity name="Price" representedClassName="Price" syncable="YES">
         <attribute name="identifier" attributeType="String" syncable="YES"/>
-        <attribute name="totalPrice" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="totalPrice" attributeType="Integer 64" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="autoService" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AutoService" inverseName="price" inverseEntity="AutoService" syncable="YES"/>
         <relationship name="parts" toMany="YES" deletionRule="Cascade" destinationEntity="PricePart" inverseName="price" inverseEntity="PricePart" syncable="YES"/>
     </entity>
     <entity name="PricePart" representedClassName="PricePart" syncable="YES">
         <attribute name="key" attributeType="String" syncable="YES"/>
-        <attribute name="value" attributeType="Decimal" syncable="YES"/>
+        <attribute name="value" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="price" maxCount="1" deletionRule="Nullify" destinationEntity="Price" inverseName="parts" inverseEntity="Price" syncable="YES"/>
     </entity>
     <entity name="Region" representedClassName="Region" syncable="YES">
@@ -147,5 +159,7 @@
         <element name="User" positionX="-27" positionY="72" width="128" height="240"/>
         <element name="Vehicle" positionX="-54" positionY="-9" width="128" height="165"/>
         <element name="VehicleDescription" positionX="-27" positionY="90" width="128" height="135"/>
+        <element name="Balance" positionX="-27" positionY="135" width="128" height="90"/>
+        <element name="Amount" positionX="-18" positionY="144" width="128" height="120"/>
     </elements>
 </model>
