@@ -36,7 +36,6 @@ class StripeTests: XCTestCase {
     func testTransaction() {
         let context = store.mainContext
         let json = singleTransaction
-//        json["connect_reserved"] = nil
         let transaction = Transaction(json: json, context: context)
         context.persist()
         XCTAssert(transaction != nil, "Must have transaction from: \(json)")
