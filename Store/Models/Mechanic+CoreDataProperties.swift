@@ -29,6 +29,7 @@ extension Mechanic {
     @NSManaged public var profileImageID: String?
     @NSManaged public var pushDeviceToken: String?
     @NSManaged public var balance: Balance?
+    @NSManaged public var transactions: Set<Transaction>
 
 }
 
