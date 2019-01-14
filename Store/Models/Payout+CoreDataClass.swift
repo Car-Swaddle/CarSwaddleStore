@@ -30,7 +30,7 @@ typealias PayoutValues = (
 
 
 @objc(Payout)
-public class Payout: NSManagedObject {
+final public class Payout: NSManagedObject, JSONInitable, NSManagedObjectFetchable {
     
     public convenience init?(json: JSONObject, context: NSManagedObjectContext) {
         guard let values = Payout.values(from: json) else { return nil }
