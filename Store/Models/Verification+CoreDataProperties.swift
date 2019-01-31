@@ -22,6 +22,9 @@ extension Verification {
     @NSManaged public var fields: Set<VerificationField>
     @NSManaged public var mechanic: Mechanic?
 
+    public var typedFieldsNeeded: [VerificationField.Field] {
+        return fields.compactMap { $0.typedValue }
+    }
     
     public var typedDisabledReason: DisabledReason? {
         guard let typedDisabledReason = DisabledReason(rawValue: disabledReason ?? "") else {
