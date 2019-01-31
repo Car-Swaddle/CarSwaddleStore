@@ -20,6 +20,8 @@ extension Verification {
     @NSManaged public var disabledReason: String?
     @NSManaged public var dueByDate: Date?
     @NSManaged public var fields: Set<VerificationField>
+    @NSManaged public var mechanic: Mechanic?
+
     
     public var typedDisabledReason: DisabledReason? {
         guard let typedDisabledReason = DisabledReason(rawValue: disabledReason ?? "") else {
