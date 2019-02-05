@@ -18,7 +18,7 @@ final public class TransactionReceipt: NSManagedObject, NSManagedObjectFetchable
     public static func receipts(from jsonArray: [JSONObject], in context: NSManagedObjectContext) -> [TransactionReceipt] {
         var receipts: [TransactionReceipt] = []
         for json in jsonArray {
-            guard let receipt = TransactionReceipt(json: json, context: context) else { continue }
+            guard let receipt = TransactionReceipt.fetchOrCreate(json: json, context: context) else { continue }
             receipts.append(receipt)
         }
         return receipts

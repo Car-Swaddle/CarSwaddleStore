@@ -49,17 +49,10 @@ final public class TransactionMetadata: NSManagedObject, NSManagedObjectFetchabl
         self.mechanicID = values.mechanicID
         self.createdAt = values.createdAt
         
-        deleteAllReceipts()
         if let transactionReceiptsJSON = json["transactionReceipts"] as? [JSONObject] {
             self.receipts = Set<TransactionReceipt>(TransactionReceipt.receipts(from: transactionReceiptsJSON, in: context))
         }
         self.autoService = AutoService.fetch(with: values.autoServiceID, in: context)
-    }
-    
-    private func deleteAllReceipts() {
-        for receipt in receipts {
-            managedObjectContext?.delete(receipt)
-        }
     }
     
 }
