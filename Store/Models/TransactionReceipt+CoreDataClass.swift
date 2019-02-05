@@ -45,6 +45,11 @@ final public class TransactionReceipt: NSManagedObject, NSManagedObjectFetchable
     private func configure(with values: TransactionReceiptValues, json: JSONObject, in context: NSManagedObjectContext) {
         self.identifier = values.identifier
         self.receiptPhotoID = values.receiptPhotoID
+        
+        if let transactionMetadataID = json["transactionMetadataID"] as? String,
+            let transactionMetadata = TransactionMetadata.fetch(with: transactionMetadataID, in: context) {
+            self.transactionMetadata = transactionMetadata
+        }
     }
     
 }

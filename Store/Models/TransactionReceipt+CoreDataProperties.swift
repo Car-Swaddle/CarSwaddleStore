@@ -19,6 +19,6 @@ extension TransactionReceipt {
 
     @NSManaged public var identifier: String
     @NSManaged public var receiptPhotoID: String
-    @NSManaged public var transactionMetadata: TransactionMetadata
+    @NSManaged public var transactionMetadata: TransactionMetadata?
 
 }
