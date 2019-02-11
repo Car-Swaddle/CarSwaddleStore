@@ -137,7 +137,7 @@
         <attribute name="mechanicCostInCents" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="metersDriven" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="year" attributeType="String" syncable="YES"/>
-        <relationship name="mechanic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanic" inverseName="taxInfos" inverseEntity="Mechanic" syncable="YES"/>
+        <relationship name="mechanic" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanic" inverseName="taxInfos" inverseEntity="Mechanic" syncable="YES"/>
     </entity>
     <entity name="TemplateTimeSpan" representedClassName="TemplateTimeSpan" syncable="YES">
         <attribute name="duration" attributeType="Double" usesScalarValueType="YES" syncable="YES"/>
