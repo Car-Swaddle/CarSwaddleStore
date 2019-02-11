@@ -18,8 +18,8 @@ extension TaxInfo {
     }
 
     @NSManaged public var year: String
-    @NSManaged public var metersDriven: String?
-    @NSManaged public var mechanicCostInCents: String?
+    @NSManaged public var metersDriven: Int
+    @NSManaged public var mechanicCostInCents: Int
     @NSManaged public var mechanic: Mechanic
 
 }
