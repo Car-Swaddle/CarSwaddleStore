@@ -33,6 +33,11 @@ public class TaxInfo: NSManagedObject {
         self.configure(with: values, json: json, in: context)
     }
     
+    public static func fetchOrCreate(with json: JSONObject, in context: NSManagedObjectContext) -> TaxInfo? {
+        guard let values = TaxInfo.values(from: json) else { return nil }
+        return TaxInfo.fetchTaxInfo(withYear: values.year, in: context) ?? TaxInfo(json: json, context: context)
+    }
+    
     private static func values(from json: JSONObject) -> TaxInfoValues? {
         guard let metersDriven = json["metersDriven"] as? Int,
             let mechanicCostInCents = json["mechanicCostInCents"] as? Int,
