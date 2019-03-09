@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-typealias BankAccountValues = (identifier: String, accountID: String, accountHolderName: String, accountHolderType: String, bankName: String, country: String, defaultForCurrency: Bool, fingerprint: String, last4: String, routingNumber: String, status: String)
+typealias BankAccountValues = (identifier: String, accountID: String, accountHolderName: String, accountHolderType: String, bankName: String, country: String, defaultForCurrency: Bool, currency: String, fingerprint: String, last4: String, routingNumber: String, status: String)
 
 @objc(BankAccount)
 final public class BankAccount: NSManagedObject, NSManagedObjectFetchable, JSONInitable {
@@ -38,9 +38,10 @@ final public class BankAccount: NSManagedObject, NSManagedObjectFetchable, JSONI
             let fingerprint = json["fingerprint"] as? String,
             let last4 = json["last4"] as? String,
             let routingNumber = json["routing_number"] as? String,
-            let status = json["status"] as? String else { return nil }
+            let status = json["status"] as? String,
+            let currency = json["currency"] as? String else { return nil }
         
-        return (identifier, accountID, accountHolderName, accountHolderType, bankName, country, defaultForCurrency, fingerprint, last4, routingNumber, status)
+        return (identifier, accountID, accountHolderName, accountHolderType, bankName, country, defaultForCurrency, currency, fingerprint, last4, routingNumber, status)
     }
     
     private func configure(with values: BankAccountValues, json: JSONObject, in context: NSManagedObjectContext) {
@@ -51,6 +52,7 @@ final public class BankAccount: NSManagedObject, NSManagedObjectFetchable, JSONI
         self.bankName = values.bankName
         self.country = values.country
         self.defaultForCurrency = values.defaultForCurrency
+        self.currency = values.currency
         self.fingerprint = values.fingerprint
         self.last4 = values.last4
         self.routingNumber = values.routingNumber
