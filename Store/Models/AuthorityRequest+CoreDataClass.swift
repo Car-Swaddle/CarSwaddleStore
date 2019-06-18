@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-typealias AuthorityRequestValues = (identifier: String, requesterID: String, expirationDate: Date, authorityName: String, creationDate: Date, authorityConfirmationID: String?, authorityID: String?, authorityConfirmationJSON: [String: Any]?, userJSON: [String: Any])
+typealias AuthorityRequestValues = (identifier: String, requesterID: String, expirationDate: Date, authorityName: String, creationDate: Date, secretID: String?, authorityConfirmationID: String?, authorityID: String?, authorityConfirmationJSON: [String: Any]?, userJSON: [String: Any])
 
 
 @objc(AuthorityRequest)
@@ -36,6 +36,7 @@ final public class AuthorityRequest: NSManagedObject, NSManagedObjectFetchable, 
         self.authorityName = values.authorityName
         self.authorityConfirmationID = values.authorityConfirmationID
         self.authorityID = values.authorityID
+        self.secretID = values.secretID
         
         guard let context = managedObjectContext else { return }
         
@@ -60,19 +61,20 @@ final public class AuthorityRequest: NSManagedObject, NSManagedObjectFetchable, 
     private static func values(from json: JSONObject, in context: NSManagedObjectContext) -> AuthorityRequestValues? {
         guard let identifier = json["id"] as? String,
             let authorityName = json["authorityName"] as? String,
-            let requesterID = json["requesterID"] as? String,
             let expirationDateString = json["expirationDate"] as? String,
             let createdAtString = json["createdAt"] as? String,
             let expirationDate = serverDateFormatter.date(from: expirationDateString),
             let creationDate = serverDateFormatter.date(from: createdAtString),
-            let userJSON = json["user"] as? JSONObject else { return nil }
+            let userJSON = json["user"] as? JSONObject,
+            let requesterID = userJSON["id"] as? String else { return nil }
         
         let authorityConfirmationJSON = json["authorityConfirmation"] as? JSONObject
         let authorityConfirmationID = authorityConfirmationJSON?["id"] as? String
         
         let authorityID = json["authorityID"] as? String
+        let secretID = json["secretID"] as? String
         
-        return (identifier, requesterID, expirationDate, authorityName, creationDate, authorityConfirmationID, authorityID, authorityConfirmationJSON, userJSON)
+        return (identifier, requesterID, expirationDate, authorityName, creationDate, secretID, authorityConfirmationID, authorityID, authorityConfirmationJSON, userJSON)
     }
     
 }

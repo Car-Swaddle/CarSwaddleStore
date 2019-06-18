@@ -47,6 +47,7 @@
         <attribute name="expirationDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="requesterID" attributeType="String" syncable="YES"/>
+        <attribute name="secretID" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="authority" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Authority" inverseName="authorityRequest" inverseEntity="Authority" syncable="YES"/>
         <relationship name="authorityConfirmation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AuthorityConfirmation" inverseName="authorityRequest" inverseEntity="AuthorityConfirmation" syncable="YES"/>
         <relationship name="requester" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="authorityRequests" inverseEntity="User" syncable="YES"/>
@@ -316,7 +317,7 @@
         <element name="Verification" positionX="-27" positionY="135" width="128" height="135"/>
         <element name="VerificationField" positionX="-18" positionY="144" width="128" height="105"/>
         <element name="Authority" positionX="-27" positionY="135" width="128" height="180"/>
-        <element name="AuthorityRequest" positionX="-18" positionY="144" width="128" height="195"/>
+        <element name="AuthorityRequest" positionX="-18" positionY="144" width="128" height="210"/>
         <element name="AuthorityConfirmation" positionX="-9" positionY="153" width="128" height="180"/>
     </elements>
 </model>

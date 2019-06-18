@@ -25,6 +25,7 @@ extension AuthorityRequest {
     
     @NSManaged public var authorityConfirmationID: String?
     @NSManaged public var authorityID: String?
+    @NSManaged public var secretID: String?
     
     @NSManaged public var requester: User?
     @NSManaged public var authority: Authority?

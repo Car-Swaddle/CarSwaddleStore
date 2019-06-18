@@ -40,6 +40,16 @@ class AuthoritiesTests: XCTestCase {
         XCTAssert(result, "Should be true")
     }
     
+    func testCreateAuthorityRequest2() {
+        let authorityRequest = AuthorityRequest.fetchOrCreate(json: authorityRequestJSON2, context: store.mainContext)
+        XCTAssert(authorityRequest != nil, "Should have authority")
+        XCTAssert(authorityRequest?.requester != nil, "Should have confirmation")
+        
+        let result = store.mainContext.persist()
+        
+        XCTAssert(result, "Should be true")
+    }
+    
 }
 
 private let authorityJSON: [String: Any] = [
@@ -104,3 +114,31 @@ private let authorityRequestJSON: [String: Any] = [
         "authorityRequestID": "27d09850-8e5f-11e9-8136-ffee546f26bb"
     ]
 ]
+
+private let authorityRequestJSON2: [String: Any] = [
+    "secretID": "62f30781-8f2f-11e9-a954-6b4feb351242",
+    "updatedAt": "2019-06-15T05:35:29.785Z",
+    "expirationDate": "2019-06-16T05:35:29.784Z",
+    "requesterID": "19a48340-8e5f-11e9-8136-ffee546f26bb",
+    "authorityID": NSNull(),
+    "id": "62f30780-8f2f-11e9-a954-6b4feb351242",
+    "createdAt": "2019-06-15T05:35:29.785Z",
+    "authorityName": "someAuthoritysgUdtJWyN6",
+    "user": [
+        "email": "kyle@carswaddle.com",
+        "firstName": NSNull(),
+        "id": "19a48340-8e5f-11e9-8136-ffee546f26bb",
+        "lastName": NSNull(),
+        "phoneNumber": NSNull(),
+        "profileImageID": NSNull(),
+        "timeZone": "America/Denver",
+    ]
+]
+
+
+
+
+/*
+ 
+ ["createdAt": 2019-06-15T05:44:14.611Z, "authorityName": someAuthorityUsnYYBBSvD, "requesterID": 19a48340-8e5f-11e9-8136-ffee546f26bb, "authorityID": <null>, "expirationDate": 2019-06-16T05:44:14.610Z, "updatedAt": 2019-06-15T05:44:14.611Z, , "id": 9bc51f20-8f30-11e9-9571-f1a6d19d87af, "secretID": 9bc51f21-8f30-11e9-9571-f1a6d19d87af]
+ */

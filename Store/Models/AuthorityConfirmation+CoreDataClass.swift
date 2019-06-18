@@ -49,10 +49,11 @@ final public class AuthorityConfirmation: NSManagedObject, NSManagedObjectFetcha
             let status = json["status"] as? String,
             let creationDateString = json["createdAt"] as? String,
             let creationDate = serverDateFormatter.date(from: creationDateString),
-            let authorityID = json["authorityID"] as? String,
             let confirmerID = json["confirmerID"] as? String,
             let authorityRequestID = json["authorityRequestID"] as? String,
             let userJSON = json["user"] as? JSONObject else { return nil }
+        
+        let authorityID = json["authorityID"] as? String
         
         return (identifier, status, creationDate, authorityID, confirmerID, authorityRequestID, userJSON)
     }
