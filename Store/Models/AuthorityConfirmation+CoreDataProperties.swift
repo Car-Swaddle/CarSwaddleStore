@@ -19,7 +19,6 @@ extension AuthorityConfirmation {
 
     @NSManaged public var identifier: String
     @NSManaged public var authorityRequestID: String
-    @NSManaged public var status: String
     @NSManaged public var confirmerID: String // userID of user who confirmed authorityRequest
     @NSManaged public var creationDate: Date
     
@@ -27,7 +26,9 @@ extension AuthorityConfirmation {
     
     @NSManaged public var authority: Authority?
     @NSManaged public var authorityRequest: AuthorityRequest?
-    @NSManaged public var confirmer: User?// user who confirmed authorityRequest
+    
+    /// user who confirmed authorityRequest
+    @NSManaged public var confirmer: User?
 
 }
 

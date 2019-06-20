@@ -30,6 +30,18 @@ class AuthoritiesTests: XCTestCase {
         XCTAssert(result, "Should be true")
     }
     
+    func testCreateAuthority2() {
+        let authority = Authority.fetchOrCreate(json: testAuthorityJSON, context: store.mainContext)
+        XCTAssert(authority != nil, "Should have authority")
+        XCTAssert(authority?.authorityConfirmation != nil, "Should have confirmation")
+        XCTAssert(authority?.authorityConfirmation?.confirmer != nil, "Should have confirmation")
+        XCTAssert(authority?.user != nil, "Should have confirmation")
+        
+        let result = store.mainContext.persist()
+        
+        XCTAssert(result, "Should be true")
+    }
+    
     func testCreateAuthorityRequest() {
         let authorityRequest = AuthorityRequest.fetchOrCreate(json: authorityRequestJSON, context: store.mainContext)
         XCTAssert(authorityRequest != nil, "Should have authority")
@@ -113,6 +125,26 @@ private let authorityRequestJSON: [String: Any] = [
         "confirmerID": "19a48340-8e5f-11e9-8136-ffee546f26bb",
         "authorityRequestID": "27d09850-8e5f-11e9-8136-ffee546f26bb"
     ]
+]
+
+
+
+private let testAuthorityJSON: [String: Any] = [
+    "requesterID": "ad1b8fe0-92a3-11e9-92eb-bb97e25e7bcd",
+    "authorityName": "someAuthorityA9408C3E-8493-40DD-A47B-FC04BE6AC8A7",
+    "authorityConfirmation": NSNull(),
+    "user": [
+        "email": "mechanic@carswaddle.com",
+        "firstName": NSNull(),
+        "id": "ad1b8fe0-92a3-11e9-92eb-bb97e25e7bcd",
+        "lastName": NSNull(),
+        "phoneNumber": NSNull(),
+        "profileImageID": NSNull(),
+        "timeZone": "America/Denver"
+    ],
+    "secretID": "5e15a741-92a4-11e9-92eb-bb97e25e7bcd",
+    "expirationDate": "2019-06-20T15:10:26.228Z", "id": "5e15a740-92a4-11e9-92eb-bb97e25e7bcd",
+    "authorityID": NSNull()
 ]
 
 private let authorityRequestJSON2: [String: Any] = [

@@ -29,7 +29,7 @@ final public class AuthorityConfirmation: NSManagedObject, NSManagedObjectFetcha
     
     private func configure(with values: AuthorityConfirmationValues) {
         self.identifier = values.identifier
-        self.status = values.status
+        self.status = Status(rawValue: values.status) ?? .rejected
         self.creationDate = values.creationDate
         self.authorityID = values.authorityID
         self.confirmerID = values.confirmerID
@@ -57,7 +57,35 @@ final public class AuthorityConfirmation: NSManagedObject, NSManagedObjectFetcha
         
         return (identifier, status, creationDate, authorityID, confirmerID, authorityRequestID, userJSON)
     }
+    
+    
+    public enum Status: String {
+        case rejected
+        case approved
+    }
+    
+    
+    private let statusKey = "status"
+    
+    @NSManaged private var primitiveStatus: String
 
+    public var status: Status {
+        set {
+            willChangeValue(forKey: statusKey)
+            primitiveStatus = newValue.rawValue
+            didChangeValue(forKey: statusKey)
+        }
+        get {
+            willAccessValue(forKey: statusKey)
+            guard let status = Status(rawValue: primitiveStatus) else {
+                fatalError("Must have value for status, unable to parse or empty value. Got: \(primitiveStatus)")
+            }
+            didAccessValue(forKey: statusKey)
+            
+            return status
+        }
+    }
+    
 }
 
 /*
