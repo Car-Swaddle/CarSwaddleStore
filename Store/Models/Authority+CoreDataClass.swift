@@ -59,7 +59,15 @@ extension Authority {
     
     public static func currentUserHas(authority: String, in context: NSManagedObjectContext) -> Bool {
         let fetchRequest: NSFetchRequest<Authority> = Authority.fetchRequest()
-        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [Authority.currentUserAuthoritiesPredicate(), Authority.currentUserHasAuthorities(withName: authority)])
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [Authority.currentUserAuthoritiesPredicate(), Authority.currentUserHasAuthority(withName: authority)])
+        fetchRequest.sortDescriptors = [Authority.creationDateSortDescriptor]
+        
+        return ((try? context.count(for: fetchRequest)) ?? 0) != 0
+    }
+    
+    public static func currentUser(has authority: Authority.Name, in context: NSManagedObjectContext) -> Bool {
+        let fetchRequest: NSFetchRequest<Authority> = Authority.fetchRequest()
+        fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [Authority.currentUserAuthoritiesPredicate(), Authority.currentUser(has: authority)])
         fetchRequest.sortDescriptors = [Authority.creationDateSortDescriptor]
         
         return ((try? context.count(for: fetchRequest)) ?? 0) != 0
