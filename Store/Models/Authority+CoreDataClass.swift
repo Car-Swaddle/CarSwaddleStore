@@ -73,8 +73,12 @@ extension Authority {
         return (try? context.fetch(fetchRequest)) ?? []
     }
     
-    public static func currentUserHasAuthorities(withName name: String) -> NSPredicate {
+    public static func currentUserHasAuthority(withName name: String) -> NSPredicate {
         return NSPredicate(format: "%K == %@", #keyPath(Authority.name), name)
+    }
+    
+    public static func currentUser(has authority: Authority.Name) -> NSPredicate {
+        return NSPredicate(format: "%K == %@", #keyPath(Authority.name), authority.rawValue)
     }
     
     public static func currentUserAuthoritiesPredicate() -> NSPredicate {
@@ -90,6 +94,17 @@ extension Authority {
     
     public static var creationDateSortDescriptor: NSSortDescriptor {
         return NSSortDescriptor(key: #keyPath(Authority.creationDate), ascending: true)
+    }
+    
+}
+
+
+extension Authority {
+    
+    public enum Name: String {
+        case coupons = "createCarSwaddleCoupon"
+        case readAuthorities = "readAuthorities"
+        case editAuthorities = "editAuthorities"
     }
     
 }
