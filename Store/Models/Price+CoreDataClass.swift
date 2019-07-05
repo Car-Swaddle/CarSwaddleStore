@@ -27,7 +27,7 @@ public final class Price: NSManagedObject, NSManagedObjectFetchable, JSONInitabl
     
     private static func values(from json: JSONObject) -> PriceValues? {
         guard let id = json.identifier,
-            let totalPrice = json["totalPrice"] as? Int,
+            let totalPrice = json["total"] as? Int,
             let processingFee = json["processingFee"] as? Int,
             let bookingFee = json["bookingFee"] as? Int,
             let distance = json["distance"] as? Int,
