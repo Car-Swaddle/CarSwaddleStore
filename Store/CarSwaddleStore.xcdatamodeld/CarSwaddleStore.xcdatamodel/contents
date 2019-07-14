@@ -54,6 +54,7 @@
     </entity>
     <entity name="AutoService" representedClassName="AutoService" syncable="YES">
         <attribute name="balanceTransactionID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="couponID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="creationDate" attributeType="Date" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <attribute name="isCanceled" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES" syncable="YES"/>
@@ -300,7 +301,7 @@
         <element name="Authority" positionX="-27" positionY="135" width="128" height="180"/>
         <element name="AuthorityConfirmation" positionX="-9" positionY="153" width="128" height="180"/>
         <element name="AuthorityRequest" positionX="-18" positionY="144" width="128" height="210"/>
-        <element name="AutoService" positionX="-63" positionY="-18" width="128" height="285"/>
+        <element name="AutoService" positionX="-63" positionY="-18" width="128" height="300"/>
         <element name="Balance" positionX="-27" positionY="135" width="128" height="105"/>
         <element name="BankAccount" positionX="-27" positionY="135" width="128" height="240"/>
         <element name="Location" positionX="-36" positionY="27" width="128" height="120"/>
