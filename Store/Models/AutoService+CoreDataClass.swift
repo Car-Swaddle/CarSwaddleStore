@@ -41,7 +41,7 @@ let serverDateFormatter: DateFormatter = {
     return dateFormatter
 }()
 
-typealias AutoServiceValues = (identifier: String, scheduledDate: Date, status: AutoService.Status, userID: String, mechanicID: String, balanceTransactionID: String?, transferID: String?, chargeID: String?, couponID: String?),
+typealias AutoServiceValues = (identifier: String, scheduledDate: Date, status: AutoService.Status, userID: String, mechanicID: String, balanceTransactionID: String?, transferID: String?, chargeID: String?, couponID: String?)
 
 @objc(AutoService)
 public final class AutoService: NSManagedObject, NSManagedObjectFetchable, JSONInitable {
