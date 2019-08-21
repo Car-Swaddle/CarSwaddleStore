@@ -11,7 +11,7 @@ import Foundation
 import CoreData
 
 @objc(OilChangePricing)
-public class OilChangePricing: NSManagedObject {
+public class OilChangePricing: NSManagedObject, NSManagedObjectFetchable  {
     
     
     
