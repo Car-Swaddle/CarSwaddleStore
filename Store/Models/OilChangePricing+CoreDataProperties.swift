@@ -23,6 +23,7 @@ extension OilChangePricing {
     @NSManaged public var synthetic: Int64
     @NSManaged public var highMileage: Int64
     @NSManaged public var centsPerMile: Int64
+    @NSManaged public var mechanicID: String
     @NSManaged public var mechanic: Mechanic?
 
 }

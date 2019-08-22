@@ -153,12 +153,13 @@
         <relationship name="serviceEntity" maxCount="1" deletionRule="Nullify" destinationEntity="ServiceEntity" inverseName="oilChange" inverseEntity="ServiceEntity" syncable="YES"/>
     </entity>
     <entity name="OilChangePricing" representedClassName="OilChangePricing" syncable="YES">
-        <attribute name="blend" optional="YES" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="centsPerMile" optional="YES" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="conventional" optional="YES" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
-        <attribute name="highMileage" optional="YES" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="blend" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="centsPerMile" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="conventional" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="highMileage" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
-        <attribute name="synthetic" optional="YES" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="mechanicID" attributeType="String" syncable="YES"/>
+        <attribute name="synthetic" attributeType="Integer 64" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="mechanic" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Mechanic" inverseName="oilChangePricing" inverseEntity="Mechanic" syncable="YES"/>
     </entity>
     <entity name="Payout" representedClassName="Payout" syncable="YES">
@@ -356,6 +357,6 @@
         <element name="VehicleDescription" positionX="-27" positionY="90" width="128" height="135"/>
         <element name="Verification" positionX="-27" positionY="135" width="128" height="135"/>
         <element name="VerificationField" positionX="-18" positionY="144" width="128" height="105"/>
-        <element name="OilChangePricing" positionX="-27" positionY="135" width="128" height="150"/>
+        <element name="OilChangePricing" positionX="-27" positionY="135" width="128" height="165"/>
     </elements>
 </model>
