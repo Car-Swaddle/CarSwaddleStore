@@ -41,6 +41,7 @@ extension Mechanic {
     @NSManaged public var hasSetServiceRegion: Bool
     @NSManaged public var creationDate: Date
     @NSManaged public var oilChangePricing: OilChangePricing?
+    @NSManaged public var chargeForTravel: Bool
 
 }
 
