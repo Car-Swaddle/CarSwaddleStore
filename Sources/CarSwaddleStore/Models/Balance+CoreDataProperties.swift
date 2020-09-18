@@ -13,13 +13,13 @@ import CoreData
 
 public extension Balance {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Balance> {
+    @nonobjc class func fetchRequest() -> NSFetchRequest<Balance> {
         return NSFetchRequest<Balance>(entityName: Balance.entityName)
     }
 
-    @NSManaged public var available: Amount
-    @NSManaged public var pending: Amount
-    @NSManaged public var reserved: Amount?
-    @NSManaged public var mechanic: Mechanic?
+    @NSManaged var available: Amount
+    @NSManaged var pending: Amount
+    @NSManaged var reserved: Amount?
+    @NSManaged var mechanic: Mechanic?
 
 }

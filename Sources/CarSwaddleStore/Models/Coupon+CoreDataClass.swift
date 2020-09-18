@@ -7,7 +7,7 @@
 //
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 //typealias CouponValues = (identifier: String, amountOff: Int?, creationDate: Date, createdByUserID: String, autoServiceID: String?, discountBookingFee: Bool, isCorporate: Bool, maxRedemptions: Int?, name: String, percentOff: CGFloat?, redeemBy: Date, redemptions: Int, updatedAt: Date)

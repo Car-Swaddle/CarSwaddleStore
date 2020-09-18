@@ -11,7 +11,7 @@ import Foundation
 
 public extension Int64 {
     
-    public var numberOfDigits: Int {
+    var numberOfDigits: Int {
         var numberOfDigits: Int = 0
         var dividedValue = self
         while dividedValue > 0 {
@@ -21,7 +21,7 @@ public extension Int64 {
         return numberOfDigits
     }
     
-    public var timeOfDayFormattedString: String {
+    var timeOfDayFormattedString: String {
         let hours = self / (60*60)
         let minutes = (self / 60) % 60
         let seconds = self % 60

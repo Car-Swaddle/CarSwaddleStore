@@ -136,7 +136,7 @@ public class PersistentStore {
 public extension NSManagedObjectContext {
     
     @discardableResult
-    public func persist() -> Bool {
+    func persist() -> Bool {
         guard hasChanges else { return false }
         do {
             try save()
@@ -148,7 +148,7 @@ public extension NSManagedObjectContext {
         }
     }
     
-    public func performOnImportQueue(_ closure: @escaping () -> Void) {
+    func performOnImportQueue(_ closure: @escaping () -> Void) {
         importQueue.async {
             self.performAndWait {
                 closure()

@@ -144,7 +144,7 @@ final public class Payout: NSManagedObject, JSONInitable, NSManagedObjectFetchab
 
 public extension Payout {
     
-    public static func sumOfPayoutAmount(with status: Payout.Status, in context: NSManagedObjectContext) -> Int? {
+    static func sumOfPayoutAmount(with status: Payout.Status, in context: NSManagedObjectContext) -> Int? {
         let fetchRequest: NSFetchRequest<NSDictionary> = NSFetchRequest(entityName: Payout.entityName)
         fetchRequest.resultType = .dictionaryResultType
         fetchRequest.predicate = Payout.predicate(for: [.inTransit, .pending])
@@ -170,22 +170,22 @@ public extension Payout {
         }
     }
     
-    public static func fetchPayoutsInTransitOrPending(in context: NSManagedObjectContext) -> [Payout] {
+    static func fetchPayoutsInTransitOrPending(in context: NSManagedObjectContext) -> [Payout] {
         return fetchPayouts(with: [.inTransit, .pending], in: context)
     }
     
-    public static func fetchPayouts(with status: [Status], in context: NSManagedObjectContext) -> [Payout] {
+    static func fetchPayouts(with status: [Status], in context: NSManagedObjectContext) -> [Payout] {
         let fetchRequest: NSFetchRequest<Payout> = Payout.fetchRequest()
         fetchRequest.sortDescriptors = [Payout.arrivalDateSortDescriptor]
         fetchRequest.predicate = Payout.predicate(for: status)
         return (try? context.fetch(fetchRequest)) ?? []
     }
     
-    public static func predicate(for status: [Status]) -> NSPredicate {
+    static func predicate(for status: [Status]) -> NSPredicate {
         return NSPredicate(format: "status in %@", status.map { $0.rawValue } )
     }
     
-    public static func purgeAll(in context: NSManagedObjectContext) {
+    static func purgeAll(in context: NSManagedObjectContext) {
         let allPayouts = Payout.fetchAllObjects(with: [Payout.arrivalDateSortDescriptor], in: context)
         for payout in allPayouts {
             context.delete(payout)

@@ -24,7 +24,7 @@ class MechanicTests: XCTestCase {
         let mechanic = Mechanic.fetchOrCreate(json: json, context: context)
         context.persist()
         
-        XCTAssert(mechanic != nil, "Should have user")
+        XCTAssert(mechanic != nil, "Should haveNo such module 'PackageDescription' user")
         XCTAssert(mechanic?.user != nil, "Should have mechanic")
     }
     

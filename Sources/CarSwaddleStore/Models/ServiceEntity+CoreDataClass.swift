@@ -121,7 +121,7 @@ final public class ServiceEntity: NSManagedObject, NSManagedObjectFetchable, JSO
 
 public extension Sequence where Iterator.Element == ServiceEntity {
     
-    public func toJSONArray(includeIdentifiers: Bool = false, includeEntityIdentifiers: Bool = false) -> [JSONObject] {
+    func toJSONArray(includeIdentifiers: Bool = false, includeEntityIdentifiers: Bool = false) -> [JSONObject] {
         var jsonArray: [JSONObject] = []
         for entity in self {
             jsonArray.append(entity.toJSON(includeIdentifier: includeIdentifiers, includeEntityIdentifier: includeEntityIdentifiers))

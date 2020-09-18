@@ -115,7 +115,7 @@ public extension NSManagedObjectFetchable where Self: NSManagedObject {
     ///   - identifier: identifier of the NSManagedObject
     ///   - context: context to be used to fetch the
     /// - Returns: an NSManagedObject that conforms to this protocol.
-    public static func fetch(with identifier: ID, in context: NSManagedObjectContext) -> Self? {
+    static func fetch(with identifier: ID, in context: NSManagedObjectContext) -> Self? {
         let fetchRequest: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.entityName)
         
         fetchRequest.predicate = NSPredicate(format: "\(identifierKey) == \(Self.formatSpecifier)", identifier)
@@ -130,7 +130,7 @@ public extension NSManagedObjectFetchable where Self: NSManagedObject {
     ///   - sortDescriptors: sort descriptor to be used to sort the fetched objects.
     ///   - context: context to be used to fetch the NSManagedObjects.
     /// - Returns: An array of conforming NSManagedObject.
-    public static func fetchAllObjects(with sortDescriptors: [NSSortDescriptor]?, in context: NSManagedObjectContext) -> [Self] {
+    static func fetchAllObjects(with sortDescriptors: [NSSortDescriptor]?, in context: NSManagedObjectContext) -> [Self] {
         let fetchRequest: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.entityName)
         fetchRequest.sortDescriptors = sortDescriptors
         
@@ -145,7 +145,7 @@ public extension NSManagedObjectFetchable where Self: NSManagedObject {
     ///   - sortDescriptors: sort descriptor to be used to sort the fetched objects.
     ///   - context: context to be used to fetch the NSManagedObjects.
     /// - Returns: An array of NSManagedObject matching the IDs.
-    public static func fetchObjects(with identifiers: [ID], sortDescriptors: [NSSortDescriptor]?, in context: NSManagedObjectContext) -> [Self] {
+    static func fetchObjects(with identifiers: [ID], sortDescriptors: [NSSortDescriptor]?, in context: NSManagedObjectContext) -> [Self] {
         let fetchRequest: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.entityName)
         fetchRequest.sortDescriptors = sortDescriptors
         fetchRequest.predicate = NSPredicate(format: "\(identifierKey) in \(Self.formatSpecifier)", identifiers)
@@ -159,7 +159,7 @@ public extension NSManagedObjectFetchable where Self: NSManagedObject {
     ///   - objectIDs: <#objectIDs description#>
     ///   - context: <#context description#>
     /// - Returns: <#return value description#>
-    public static func fetchObjects(with objectIDs: [NSManagedObjectID], in context: NSManagedObjectContext) -> [Self] {
+    static func fetchObjects(with objectIDs: [NSManagedObjectID], in context: NSManagedObjectContext) -> [Self] {
         let fetchRequest: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.entityName)
         fetchRequest.predicate = NSPredicate(format: "Self in %@", objectIDs)
         
@@ -174,7 +174,7 @@ public extension NSManagedObjectFetchable where Self: NSManagedObject {
     ///   - context: context owning the managed objects
     ///   - objects: array of managed objects to keep. These will not be deleted from the context.
     ///   - fetchLimit: affects memory behaviour. Autoreleasepool will release at least every `fetchLimit`
-    public static func deleteObjects(in context: NSManagedObjectContext, whileKeeping objects: [Self], fetchLimit: Int) {
+    static func deleteObjects(in context: NSManagedObjectContext, whileKeeping objects: [Self], fetchLimit: Int) {
         let fetchRequest: NSFetchRequest<Self> = NSFetchRequest(entityName: Self.entityName)
         fetchRequest.predicate = NSPredicate(format: "NOT (SELF IN %@)", objects)
         fetchRequest.fetchLimit = fetchLimit

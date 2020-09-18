@@ -10,7 +10,7 @@ import CoreData
 
 public extension NSManagedObject {
     
-    public static var entityName: String {
+    static var entityName: String {
         let fullClassName = NSStringFromClass(self)
         let baseName = fullClassName.components(separatedBy: ".").last
         return baseName ?? fullClassName
