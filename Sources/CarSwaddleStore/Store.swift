@@ -38,8 +38,8 @@ public class PersistentStore {
     // MARK: - Core Data stack
     
     private var modelURL: URL {
-//        return Bundle.module.url(forResource: modelName, withExtension: modelFileExtension)!
-        return Bundle(for: Self.self).url(forResource: modelName, withExtension: modelFileExtension)!
+        return Bundle.module.url(forResource: modelName, withExtension: modelFileExtension)!
+//        return Bundle(for: Self.self).url(forResource: modelName, withExtension: modelFileExtension)!
     }
     
     lazy private var managedObjectModel: NSManagedObjectModel = {
