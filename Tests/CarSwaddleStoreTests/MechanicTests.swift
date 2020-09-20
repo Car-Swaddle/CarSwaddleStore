@@ -8,7 +8,7 @@
 
 import XCTest
 import CoreData
-@testable import Store
+@testable import CarSwaddleStore
 
 class MechanicTests: XCTestCase {
     

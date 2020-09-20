@@ -8,14 +8,14 @@
 
 import XCTest
 import CoreData
-@testable import Store
+@testable import CarSwaddleStore
 
-let store = PersistentStore(bundle: Bundle(identifier: "CS.Store")!, storeName: "CarSwaddleStore", containerName: "StoreContainer")
+let store = PersistentStore(containerName: "StoreContainer")
 
 class StoreTests: XCTestCase {
     
     func testSetupStore() {
-        let store = PersistentStore(bundle: Bundle(identifier: "CS.Store")!, storeName: "CarSwaddleStore", containerName: "StoreContainer")
+        let store = PersistentStore(containerName: "StoreContainer")
         store.mainContext.persist()
     }
     

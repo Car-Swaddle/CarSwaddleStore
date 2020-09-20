@@ -8,7 +8,7 @@
 
 import XCTest
 import CoreData
-@testable import Store
+@testable import CarSwaddleStore
 
 private let autoServiceMechanicID = "10aaf8a0-ea9f-11e8-a56c-2953c4831dcb"
 private let autoServiceUserID = "109fd510-ea9f-11e8-a56c-2953c4831dcb"

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import Store
+@testable import CarSwaddleStore
 
 
 class RegionTests: XCTestCase {

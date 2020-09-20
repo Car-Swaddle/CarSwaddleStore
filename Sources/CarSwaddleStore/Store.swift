@@ -11,6 +11,7 @@ import CoreData
 public typealias JSONObject = [String: Any]
 
 private let modelFileExtension = "momd"
+private let modelName = "CarSwaddleStore"
 
 
 private let privateContextQueue = DispatchQueue(label: "privateContextQueue", qos: .background)
@@ -19,13 +20,9 @@ private let importQueue = DispatchQueue(label: "importQueue", qos: .background)
 
 public class PersistentStore {
     
-    public let bundle: Bundle
-    public let storeName: String
     public let containerName: String
     
-    public init(bundle: Bundle, storeName: String, containerName: String) {
-        self.bundle = bundle
-        self.storeName = storeName
+    public init(containerName: String) {
         self.containerName = containerName
     }
     
@@ -41,7 +38,8 @@ public class PersistentStore {
     // MARK: - Core Data stack
     
     private var modelURL: URL {
-        return bundle.url(forResource: storeName, withExtension: modelFileExtension)!
+//        return Bundle.module.url(forResource: modelName, withExtension: modelFileExtension)!
+        return Bundle(for: Self.self).url(forResource: modelName, withExtension: modelFileExtension)!
     }
     
     lazy private var managedObjectModel: NSManagedObjectModel = {
