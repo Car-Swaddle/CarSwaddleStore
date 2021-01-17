@@ -38,6 +38,7 @@ public class PersistentStore {
     // MARK: - Core Data stack
     
     private var modelURL: URL {
+        // This must be `Bundle.module` for apps using CarSwaddleStore, but can't be `Bundle.module` to build or run tests...
         return Bundle.module.url(forResource: modelName, withExtension: modelFileExtension)!
 //        return Bundle(for: Self.self).url(forResource: modelName, withExtension: modelFileExtension)!
     }

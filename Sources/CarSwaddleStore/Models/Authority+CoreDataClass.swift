@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-typealias AuthorityValues = (identifier: String, userID: String, authorityName: String, creationDate: Date, confirmationJSON: JSONObject, userJSON: JSONObject)
+typealias AuthorityValues = (identifier: String, userID: String, authorityName: String, creationDate: Date, confirmationJSON: JSONObject?, userJSON: JSONObject)
 
 @objc(Authority)
 final public class Authority: NSManagedObject, NSManagedObjectFetchable, JSONInitable {
@@ -32,11 +32,13 @@ final public class Authority: NSManagedObject, NSManagedObjectFetchable, JSONIni
         self.name = values.authorityName
         self.creationDate = values.creationDate
         self.userID = values.userID
-        self.authorityConfirmationID = values.confirmationJSON["id"] as? String
+        self.authorityConfirmationID = values.confirmationJSON?["id"] as? String
         
         guard let context = managedObjectContext else { return }
         
-        self.authorityConfirmation = AuthorityConfirmation.fetchOrCreate(json: values.confirmationJSON, context: context)
+        if let c = values.confirmationJSON {
+            self.authorityConfirmation = AuthorityConfirmation.fetchOrCreate(json: c, context: context)
+        }
         
         self.user = User.fetchOrCreate(json: values.userJSON, context: context)
     }
@@ -46,11 +48,10 @@ final public class Authority: NSManagedObject, NSManagedObjectFetchable, JSONIni
             let authorityName = json["authorityName"] as? String,
             let creationDateString = json["createdAt"] as? String,
             let creationDate = serverDateFormatter.date(from: creationDateString),
-            let userID = json["userID"] as? String,
-            let authorityConfirmationJSON = json["authorityConfirmation"] as? JSONObject,
+            let userID = json["userID"] as? String ?? (json["user"] as? JSONObject)?["id"] as? String,
             let userJSON = json["user"] as? JSONObject else { return nil }
         
-        return (identifier, userID, authorityName, creationDate, authorityConfirmationJSON, userJSON)
+        return (identifier, userID, authorityName, creationDate, json["authorityConfirmation"] as? JSONObject, userJSON)
     }
     
 }
