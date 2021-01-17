@@ -104,7 +104,6 @@ final public class Payout: NSManagedObject, JSONInitable, NSManagedObjectFetchab
             let type = json["type"] as? String,
             let status = Status(rawValue: json["status"] as? String ?? ""),
             let method = json["method"] as? String,
-            let payoutDescription = json["description"] as? String,
             let sourceType = json["source_type"] as? String else { return nil }
         
         let destination = json["destination"] as? String
@@ -112,6 +111,7 @@ final public class Payout: NSManagedObject, JSONInitable, NSManagedObjectFetchab
         let failureMessage = json["failure_message"] as? String
         let failureCode = json["failure_code"] as? String
         let failureBalanceTransaction = json["failure_balance_transaction"] as? String
+        let payoutDescription = json["description"] as? String ?? ""
         
         let balanceTransactionID = json["balance_transaction"] as? String
         
