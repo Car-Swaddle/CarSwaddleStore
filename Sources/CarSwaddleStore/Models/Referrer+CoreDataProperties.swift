@@ -8,7 +8,11 @@
 import CoreData
 
 @objc(Referrer)
-public final class Referrer: NSManagedObject, NSManagedObjectFetchable {
+public final class Referrer: NSManagedObject, NSManagedObjectFetchable, Identifiable {
+    public var id: String {
+        identifier
+    }
+    
     
     @NSManaged public var identifier: String
     // Pseudo-enum for source: user, email, ad, campaign, etc
