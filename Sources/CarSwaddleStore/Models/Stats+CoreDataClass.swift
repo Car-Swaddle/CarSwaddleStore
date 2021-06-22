@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-private typealias StatsValues = (averageRating: Double, numberOfRatings: Int, autoServicesProvided: Int, mechanic: Mechanic)
+private typealias StatsValues = (averageRating: Double, numberOfRatings: Int?, autoServicesProvided: Int, mechanic: Mechanic)
 
 @objc(Stats)
 public class Stats: NSManagedObject {
@@ -29,17 +29,17 @@ public class Stats: NSManagedObject {
     
     private func configure(with values: StatsValues) {
         self.averageRating = values.averageRating
-        self.numberOfRatings = values.numberOfRatings
+        self.numberOfRatings = values.numberOfRatings ?? 0
         self.autoServicesProvided = values.autoServicesProvided
         self.mechanic = values.mechanic
     }
     
     private static func values(from json: JSONObject, mechanicID: String, in context: NSManagedObjectContext) -> StatsValues? {
-        guard let averageRating = json["averageRating"] as? Double,
-            let numberOfRatings = json["numberOfRatings"] as? Int,
-            let autoServicesProvided = json["autoServicesProvided"] as? Int,
-            let mechanic = Mechanic.fetch(with: mechanicID, in: context) else { return nil }
+        guard let mechanic = Mechanic.fetch(with: mechanicID, in: context) else { return nil }
         
+        let numberOfRatings = json["numberOfRatings"] as? Int ?? 0
+        let autoServicesProvided = json["autoServicesProvided"] as? Int ?? 0
+        let averageRating = json["averageRating"] as? Double ?? 0
         return (averageRating, numberOfRatings, autoServicesProvided, mechanic)
     }
     
