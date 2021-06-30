@@ -38,6 +38,9 @@ extension User {
     @NSManaged public var authorityConfirmations: Set<AuthorityConfirmation>
     @NSManaged public var coupons: Set<Coupon>
     
+    @NSManaged public var activeReferrerID: String?
+    @NSManaged public var signUpReferrerID: String?
+    
 }
 
 // MARK: Generated accessors for requestServices

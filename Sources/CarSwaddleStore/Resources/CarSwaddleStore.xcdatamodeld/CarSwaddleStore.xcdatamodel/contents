@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20D91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20E232" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Address" representedClassName="Address" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String"/>
         <attribute name="country" optional="YES" attributeType="String"/>
@@ -292,6 +292,7 @@
         <relationship name="transactionMetadata" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="TransactionMetadata" inverseName="receipts" inverseEntity="TransactionMetadata"/>
     </entity>
     <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="activeReferrerID" optional="YES" attributeType="String"/>
         <attribute name="averageRating" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="firstName" optional="YES" attributeType="String"/>
@@ -302,6 +303,7 @@
         <attribute name="phoneNumber" optional="YES" attributeType="String"/>
         <attribute name="profileImageID" optional="YES" attributeType="String"/>
         <attribute name="pushDeviceToken" optional="YES" attributeType="String"/>
+        <attribute name="signUpReferrerID" optional="YES" attributeType="String"/>
         <attribute name="timeZone" optional="YES" attributeType="String"/>
         <relationship name="authorities" toMany="YES" deletionRule="Cascade" destinationEntity="Authority" inverseName="user" inverseEntity="Authority"/>
         <relationship name="authorityConfirmations" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AuthorityConfirmation" inverseName="confirmer" inverseEntity="AuthorityConfirmation"/>
@@ -371,7 +373,7 @@
         <element name="Transaction" positionX="-9" positionY="153" width="128" height="285"/>
         <element name="TransactionMetadata" positionX="-27" positionY="135" width="128" height="195"/>
         <element name="TransactionReceipt" positionX="-18" positionY="144" width="128" height="105"/>
-        <element name="User" positionX="-27" positionY="72" width="128" height="330"/>
+        <element name="User" positionX="-27" positionY="72" width="128" height="344"/>
         <element name="Vehicle" positionX="-54" positionY="-9" width="128" height="180"/>
         <element name="VehicleDescription" positionX="-27" positionY="90" width="128" height="135"/>
         <element name="Verification" positionX="-27" positionY="135" width="128" height="135"/>
